@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum WorkoutPlanStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model WorkoutPlans {
+  id                     Int               @id @default(autoincrement())
+  userInput              String
+  status                 WorkoutPlanStatus @default(PENDING)
+  fitnessLevel           String            @default("")
+  primaryGoal            String            @default("")
+  daysPerWeek            Int               @default(3)
+  sessionMinutes         Int               @default(45)
+  equipment              String[]          @default([])
+  focusAreas             String[]          @default([])
+  safetyNotes            String[]          @default([])
+  extractedProfile       Json?
+  recommendedStructure   Json?
+  weeklyPlan             Json?
+  evaluatorScore         Int               @default(0)
+  evaluatorFeedback      String            @default("")
+  evaluatorFinalResponse String            @default("")
+  summary                String            @default("")
+  createdAt              DateTime          @default(now())
+  updatedAt              DateTime          @updatedAt
+}
