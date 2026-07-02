@@ -10,7 +10,7 @@ Fondasi backend untuk aplikasi `AI Workout Planner` dengan gaya arsitektur yang 
 ## Menjalankan project
 
 1. Install dependency
-2. Salin `.env.example` menjadi `.env`
+2. Buat file `.env`
 3. Jalankan PostgreSQL dan Redis
 4. Jalankan migration Prisma
 5. Jalankan API server dan worker
